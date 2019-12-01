@@ -1,25 +1,33 @@
 import React from 'react'
 import {useSelector} from 'react-redux'
+import {NavLink} from 'react-router-dom'
 
 function HomeNavBar(props){
   const secondaryColor = useSelector(state => state.secondaryColor)
   return(
     <div id='homenavbar'>
       <ul>
-        <li style={{
-          backgroundColor:secondaryColor,
-          color:'black'
-        }}>New Releases</li>
-        <li style={{
-          backgroundColor:secondaryColor,
-          color:'black'
-        }}
-        >Search for Movies</li>
-        <li style={{
-          backgroundColor:secondaryColor,
-          color:'black'
-        }}
-        >Popular Movies</li>
+        <NavLink 
+        activeStyle={{filter:`drop-shadow(0px 2px 5px ${secondaryColor})`}}
+        style={{backgroundColor:secondaryColor,
+          color:'black'}}
+        to='/newreleases'>
+          New Releases
+        </NavLink>
+        <NavLink 
+        activeStyle={{filter:`drop-shadow(0px 2px 5px ${secondaryColor})`}}
+        style={{backgroundColor:secondaryColor,
+          color:'black'}}
+        to='/search'>
+          Search for Movies
+        </NavLink>
+        <NavLink 
+        activeStyle={{filter:`drop-shadow(0px 2px 5px ${secondaryColor})`}}
+        style={{backgroundColor:secondaryColor,
+          color:'black'}}
+        to='/popularmovies'>
+          Popular Movies
+        </NavLink>
       </ul>
     </div>
   )

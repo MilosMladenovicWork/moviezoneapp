@@ -1,6 +1,6 @@
 import React from 'react'
 import {useSelector} from 'react-redux'
-import {Link, BrowserRouter as Router} from 'react-router-dom'
+import {Link} from 'react-router-dom'
 
 function Logo(props){
   const secondaryColor = useSelector(state=> state.secondaryColor)

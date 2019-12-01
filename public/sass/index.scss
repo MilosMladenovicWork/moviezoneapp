@@ -39,7 +39,8 @@ body{
   list-style: none;
   padding-left:0;
   }
-  li{
+  a{
+    text-decoration:none;
     margin:0 1rem;
     float:left;
     padding:0.5rem 1rem;
@@ -207,4 +208,17 @@ body{
 
 .homeMovieTitle{
   font-size:1.5rem;
+}
+.swiper-container {
+  width: 100%;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+.swiper-slide {
+  background-position: center;
+  background-size: cover;
+  width: 300px;
+  height: 300px;
+  border:1px solid red;
+  display:inline-flex;
 }
