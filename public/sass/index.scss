@@ -57,7 +57,7 @@ body{
   align-items:center;
 }
 
-.hero{
+.hero, .newReleasesContainer{
   position: absolute;
   top: 100px;
   left: 0;
@@ -210,15 +210,38 @@ body{
   font-size:1.5rem;
 }
 .swiper-container {
-  width: 100%;
+  @include marginTop;
+  width: 90%;
   padding-top: 50px;
   padding-bottom: 50px;
+  height:70vh;
 }
 .swiper-slide {
   background-position: center;
   background-size: cover;
-  width: 300px;
-  height: 300px;
-  border:1px solid red;
-  display:inline-flex;
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
+
+.movieImage{
+  width:100%;
+  border-radius:20px;
+  height:100%;
+}
+
+.movieImageWrapper{
+  border-radius:20px;
+  width:50%;
+}
+
+.swiper-slide-active{
+  transform:scale(1.2)
+}
+
+.colorTest{
+  position:fixed;
+  left:200%;
+}
+

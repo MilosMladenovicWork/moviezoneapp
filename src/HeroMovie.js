@@ -25,9 +25,10 @@ function HeroMovie(){
   const fetchMovies = async ()=>{
     fetch('https://api.themoviedb.org/3/movie/popular?api_key=a614b2b8bd0dd35de81141140841503f&language=en-US&page=1')
     .then(data=> data.json())
-    .then(data=> dispatch(movieAction(data.results)))
+    .then(data=> {
+      data.results.pop()
+      dispatch(movieAction(data.results))})
   }
-
   const randomNumGenerator = (to) => {
     return Math.floor(Math.random() * to)
   };
@@ -95,7 +96,7 @@ function HeroMovie(){
         />
       </Link>
     </div>
-  <p class='homeMovieTitle'>
+  <p className='homeMovieTitle'>
       {movieTitle}
   </p>
   </div>
