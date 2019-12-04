@@ -3,6 +3,8 @@ import HomeNavBar from './HomeNavBar'
 import Hero from './Hero'
 import SeeMovie from './SeeMovie'
 import NewReleases from './NewReleases'
+import PopularMovies from './PopularMovies'
+import SearchForMovies from './SearchForMovies'
 import {Route,Switch} from 'react-router-dom'
 import {TransitionGroup,CSSTransition} from 'react-transition-group'
 
@@ -21,6 +23,8 @@ function Home(props){
               <Route exact path='/' component={Hero}/>
               <Route exact path='/movie' component={SeeMovie}/>
               <Route exact path='/newreleases' component={NewReleases}/>
+              <Route exact path='/popularmovies' component={PopularMovies}/>
+              <Route exact path='/search' component={SearchForMovies}/>
             </Switch>
           </CSSTransition>
         </TransitionGroup>

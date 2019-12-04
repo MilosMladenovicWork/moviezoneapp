@@ -65,12 +65,13 @@ body{
 }
 
 .seeMovie{
-  height:60vh;
-  width:90%;
+  position:absolute;
+  height:80vh;
+  width:100%;
   margin:auto;
   @include marginTop;
   display:flex;
-  justify-content: space-evenly;
+  justify-content: center;
   align-items:center;
   flex-direction:column;
 }
@@ -137,7 +138,7 @@ body{
   width:100%;
   height:4rem;
   position:absolute;
-  bottom:5rem;
+  bottom:0rem;
   left:0;
 }
 
@@ -208,12 +209,14 @@ body{
 
 .homeMovieTitle{
   font-size:1.5rem;
+  text-align: center;
 }
-.swiper-container {
+[class^="swiper-container"] {
   @include marginTop;
   width: 90%;
   padding-top: 50px;
   padding-bottom: 50px;
+  margin:auto;
   height:70vh;
 }
 .swiper-slide {

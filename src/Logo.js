@@ -5,8 +5,8 @@ import {Link} from 'react-router-dom'
 function Logo(props){
   const secondaryColor = useSelector(state=> state.secondaryColor)
   return(
-    <Link to='/'>
     <div id='logo'>
+      <Link to='/'>
       <svg xmlns="http://www.w3.org/2000/svg" width="126" height="30">
       <path fill="none" d="M-1 -1H127V31H-1z"></path>
       <g fillOpacity="null" stroke="#000" strokeOpacity="null">
@@ -57,8 +57,8 @@ function Logo(props){
         ></path>
       </g>
     </svg>
-    </div>
     </Link>
+    </div>
   )
 }
 

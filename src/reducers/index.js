@@ -7,6 +7,7 @@ import clickedInformation from './clickedInformation'
 import genres from './genres.js'
 import clickedDescription from './clickedDescription'
 import relNum from './relNum'
+import popNum from './popNum'
 
 const allReducers = combineReducers({
   mainColor:mainColor,
@@ -16,7 +17,8 @@ const allReducers = combineReducers({
   clickedInformation:clickedInformation,
   genres:genres,
   clickedDescription:clickedDescription,
-  relNum:relNum
+  relNum:relNum,
+  popNum:popNum
 })
 
 export default allReducers

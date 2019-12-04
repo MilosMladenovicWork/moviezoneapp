@@ -70,6 +70,13 @@ export const relNum = () => {
   }
 }
 
+export const popNum = () => {
+  return {
+    type:'NEXT_PAGE_POPULAR'
+  }
+}
+
+
 export const clickedDescription = () => {
   return{
     type:'CLICK_DESCRIPTION'

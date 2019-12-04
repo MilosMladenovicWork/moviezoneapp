@@ -27,6 +27,7 @@ function HeroMovie(){
     .then(data=> data.json())
     .then(data=> {
       data.results.pop()
+      data.results.pop()
       dispatch(movieAction(data.results))})
   }
   const randomNumGenerator = (to) => {
@@ -34,7 +35,7 @@ function HeroMovie(){
   };
 
   const firstPicture = () => {
-    let num = randomNumGenerator(movie.length);
+    let num = randomNumGenerator(18);
     dispatch(movieNumAction(num));
     setMovieImage(`https://image.tmdb.org/t/p/w500${movie[num]['poster_path']}`)
     setMovieTitle(movie[num]['title'])
@@ -63,7 +64,7 @@ function HeroMovie(){
     if(movie.length !== 0){
       firstPicture();
       const randomMovieInterval = setInterval(()=>{
-        let num = randomNumGenerator(movie.length);
+        let num = randomNumGenerator(20);
         dispatch(movieNumAction(num))
         setMovieImage(`https://image.tmdb.org/t/p/w500${movie[num]['poster_path']}`)
         setMovieTitle(movie[num]['title'])

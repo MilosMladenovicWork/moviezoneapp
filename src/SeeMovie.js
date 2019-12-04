@@ -19,8 +19,8 @@ function SeeMovie(props){
   const [movieTitle, setMovieTitle] = useState('')
 
   const firstPicture = () => {
-    setMovieImage(`https://image.tmdb.org/t/p/w500${movie[num]['poster_path']}`)
-    setMovieTitle(movie[num]['title'])
+    setMovieImage(movie[num] !== undefined && `https://image.tmdb.org/t/p/w500${movie[num]['poster_path']}`)
+    setMovieTitle(movie[num] !== undefined && movie[num]['title'])
   };
 
   const firstPictureReload = () => {
@@ -78,8 +78,8 @@ function SeeMovie(props){
       ${!clickedDescription && clickedInformation ? 'imageInformationClicked' : ''}`}
       style={{boxShadow: `0 5px 10px ${primaryColor}`}}
       >
-        <Link to='/'>
-          <img 
+          <img
+          onClick={() => props.history.goBack()} 
           ref={image}
           onLoad = {function(){
             const colorThief = new ColorThief();
@@ -91,7 +91,6 @@ function SeeMovie(props){
           id='heroMovieImg'
           crossOrigin='anonymous'
           />
-        </Link>
       </div>
     </div>
     <InformationBar />

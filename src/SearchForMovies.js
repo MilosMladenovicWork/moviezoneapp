@@ -7,6 +7,7 @@ import {movie as movieAction,
    movieNumber as movieNumAction,
   removeMovie,
   relNum as relNumAction,
+  popNum as popNumAction,
   mainColor as main,
   secondaryColor as secondary} from './actions'
 import {Link} from 'react-router-dom'
@@ -18,7 +19,7 @@ function NewReleases(){
   const dispatch = useDispatch();
   const movies = useSelector(state => state.movie)
   const primaryColor = useSelector(state => state.mainColor)
-  let releasesPageNumber = useSelector(state => state.relNum)
+  let popularPageNumber = useSelector(state => state.popNum)
   let movieNum = useSelector(state => state.movieNumber)
   let image = useRef(null)
 
@@ -26,28 +27,27 @@ function NewReleases(){
   let moviesList;
   let colorsList = [];
   useEffect(()=>{
-  fetchNewReleases();
+    fetchPopular()
   },[])
 
 
-  function fetchNewReleases(){
-    fetch('https://api.themoviedb.org/3/movie/now_playing?api_key=a614b2b8bd0dd35de81141140841503f&language=en-US&page=' + releasesPageNumber)
+  function fetchPopular(){
+    fetch('https://api.themoviedb.org/3/movie/popular?api_key=a614b2b8bd0dd35de81141140841503f&language=en-US&page=' + popularPageNumber)
     .then(data => data.json())
     .then(data=> {
       dispatch(movieAction(data.results));
-      dispatch(relNumAction())
-      return true
+      dispatch(popNumAction())
     }
     )
   }
 
-  function fetchMoreNewReleases(){
-    releasesPageNumber += 1;
-    fetch('https://api.themoviedb.org/3/movie/now_playing?api_key=a614b2b8bd0dd35de81141140841503f&language=en-US&page=' + releasesPageNumber)
+  function fetchMorePopular(){
+    popularPageNumber += 1;
+    fetch('https://api.themoviedb.org/3/movie/popular?api_key=a614b2b8bd0dd35de81141140841503f&language=en-US&page=' + popularPageNumber)
     .then(data => data.json())
     .then(data=> {
       dispatch(addMovie(data.results))
-      dispatch(relNumAction())
+      dispatch(popNumAction())
     }
     )
   }
@@ -68,7 +68,7 @@ function NewReleases(){
   };
 
   const moviesListCreator = new Promise((resolve,reject) => {
-      if(movies.length >= 20){
+      if(movies.length >= 19){
         moviesList = movies.map(movie => 
           
           <div key={movie.id} className='swiper-slide'>
@@ -89,46 +89,44 @@ function NewReleases(){
           </div>
           );
   
-          if(moviesList.length >= 20){
+          if(moviesList.length >= 19){
               resolve()
-              
           }
             
       }
   })
 
   let randomNum = Math.floor(Math.random() * 10000000)
-
   useEffect(()=>{
-      if(movies.length === 20){
+      if(movies.length === 19){
         moviesListCreator.then(() => {
-            mySwiper = new Swiper('.swiper-container' + randomNum, {
-              grabCursor: false,
-              centeredSlides: true,
-              slidesPerView: '3',
-              keyboard:true,
-              initialSlide:0,
-              observer:true,
-              navigation: {
-                nextEl: '.swiper-button-next',
-                prevEl: '.swiper-button-prev',
+          mySwiper = new Swiper('.swiper-container' + randomNum, {
+            grabCursor: false,
+            centeredSlides: true,
+            slidesPerView: '3',
+            keyboard:true,
+            initialSlide:0,
+            observer:true,
+            navigation: {
+              nextEl: '.swiper-button-next',
+              prevEl: '.swiper-button-prev',
+            },
+            on:{
+              slideChange: function(){
+                dispatch(movieNumAction(mySwiper.activeIndex))
               },
-              on:{
-                slideChange: function(){
-                  dispatch(movieNumAction(mySwiper.activeIndex))
-                },
-                init: function(){
-                    dispatch(movieNumAction(0))
-                },
-                reachEnd:function(){
-                  fetchMoreNewReleases();
-                }
+              init: function(){
+                  dispatch(movieNumAction(0))
+              },
+              reachEnd:function(){
+                fetchMorePopular();
               }
-            })
+            }
+          })
         });
       }
 
-  }, [movies, releasesPageNumber])
+  }, [movies, popularPageNumber])
 
 
   function smallImageSrc(){
@@ -145,7 +143,7 @@ function NewReleases(){
 
   return(
     <div className='newReleasesContainer'>
-      <h1 className='title'>New Releases</h1>
+      <h1 className='title'>Popular Movies</h1>
       <div className={'swiper-container' + randomNum}>
         <div className='swiper-wrapper'>
           {moviesList}
