@@ -78,9 +78,14 @@ function NewReleases(){
       if(movies.length >= 1){
         moviesListCreator.then(() => {
           mySwiper = new Swiper('.swiper-container' + randomNum, {
+            breakpoints:{
+              576:{
+                slidesPerView:'3'
+              }
+            },
             grabCursor: false,
             centeredSlides: true,
-            slidesPerView: '3',
+            slidesPerView: '1',
             keyboard:true,
             initialSlide:0,
             observesSlideChildren:true,

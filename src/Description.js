@@ -13,11 +13,12 @@ function Description(){
   return(
     <div 
     className={`description ${clickedDescription ? 'descriptionClicked' : ''}`}
+    onClick={()=>dispatch(clickedDescriptionAction())}
     style={{
       border:`1px solid ${secondaryColor}`
     }}
     >
-      <p onClick={()=>dispatch(clickedDescriptionAction())}>{movie[num] && clickedDescription ? movie[num]['overview'] : 'Description'}</p>
+      <p>{movie[num] && clickedDescription ? movie[num]['overview'] : 'Description'}</p>
     </div>
   )
 }

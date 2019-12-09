@@ -54,7 +54,6 @@ function HeroMovie(){
                   value[2]+255:value[2]+20) + ')';
     dispatch(main(mainColor))
     dispatch(secondary(secondaryColor))
-    console.log('color catch')
   };
 
   useEffect(()=>{

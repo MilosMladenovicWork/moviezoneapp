@@ -357,4 +357,361 @@ body {
   position: fixed;
   left: 200%;
 }
+
+@media (max-width: 576px) {
+  body {
+    overflow-y: visible;
+  }
+  .appWrapper {
+    height: auto;
+    width: 100%;
+  }
+  .App {
+    min-height: 100%;
+  }
+  #logo {
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    padding: 1rem 0;
+  }
+  #homenavbar, .searchnavbar {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  #homenavbar ul, .searchnavbar ul {
+    list-style: none;
+    padding-left: 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    width: 100%;
+  }
+  #homenavbar a, .searchnavbar a {
+    text-decoration: none;
+    text-align: center;
+    width: auto;
+    margin: 0.5rem auto;
+    padding: 0.5rem 1rem;
+    border-radius: 1.5rem;
+  }
+  .swiper-button-next, .swiper-button-prev {
+    opacity: 0;
+  }
+  .swiper-button-disabled {
+    opacity: 0 !important;
+  }
+  .searchnavbar li:first-child {
+    margin-top: 1rem;
+  }
+  .searchnavbar li {
+    text-decoration: none;
+    margin: 0rem 0rem;
+    float: none;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  .searchnavbar li input {
+    background-color: transparent;
+    padding: 0.5rem 1rem;
+    border-radius: 1.5rem;
+  }
+  .searchnavbar li input:focus {
+    outline: 0;
+  }
+  .searchnavbar li button {
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 1.5rem;
+    color: black;
+  }
+  #hero {
+    height: auto;
+    width: 90%;
+    margin: auto;
+    margin-top: 1rem;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: space-evenly;
+        -ms-flex-pack: space-evenly;
+            justify-content: space-evenly;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .hero, .newReleasesContainer {
+    position: static;
+  }
+  .seeMovie {
+    position: static;
+    height: auto;
+    width: 100%;
+    margin: auto;
+    margin-top: 1rem;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .fade-appear,
+  .fade-enter {
+    opacity: 0;
+    z-index: 1;
+  }
+  .fade-appear-active,
+  .fade-enter.fade-enter-active {
+    opacity: 1;
+    -webkit-transition: opacity 300ms linear 150ms;
+    transition: opacity 300ms linear 150ms;
+  }
+  .fade-exit {
+    opacity: 1;
+  }
+  .fade-exit.fade-exit-active {
+    opacity: 0;
+    -webkit-transition: opacity 150ms linear;
+    transition: opacity 150ms linear;
+  }
+  #primaryHeroText, #secondaryHeroText {
+    text-align: center;
+  }
+  #primaryHeroText {
+    font-size: 5rem;
+  }
+  #secondaryHeroText {
+    margin-top: 1rem;
+  }
+  #heroMovie {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  #heroMovie p {
+    text-align: center;
+    margin-top: 1rem;
+  }
+  #heroImgWrapper {
+    border-radius: 20px;
+    width: 90%;
+  }
+  #heroImgWrapper img {
+    height: auto;
+    width: 100%;
+    border-radius: 20px;
+  }
+  #heroImgWrapper p {
+    text-align: center;
+  }
+  .informationBar {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: space-evenly;
+        -ms-flex-pack: space-evenly;
+            justify-content: space-evenly;
+    width: 100%;
+    height: auto;
+    position: static;
+  }
+  .information, .details, .description {
+    padding: 0.5rem 1rem;
+    border-radius: 1.5rem;
+    margin-top: 1rem;
+    width: 90%;
+    text-align: center;
+  }
+  .details {
+    -webkit-box-ordinal-group: 2;
+        -ms-flex-order: 1;
+            order: 1;
+  }
+  .information {
+    -webkit-box-ordinal-group: 3;
+        -ms-flex-order: 2;
+            order: 2;
+  }
+  .description {
+    -webkit-box-ordinal-group: 4;
+        -ms-flex-order: 3;
+            order: 3;
+    margin-bottom: 1rem;
+  }
+  .details, .information {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .information, .description {
+    cursor: pointer;
+  }
+  .ratingStarImage {
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    height: 20px;
+  }
+  .star {
+    height: 100%;
+  }
+  .title {
+    text-align: center;
+  }
+  .informationClicked {
+    -webkit-transform: translateY(0vh);
+            transform: translateY(0vh);
+    width: 90%;
+  }
+  .descriptionClicked {
+    -webkit-transform: translateY(0vh);
+            transform: translateY(0vh);
+    width: 90%;
+  }
+  .informationBlock {
+    width: 90%;
+  }
+  .genresList {
+    list-style: none;
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  .imageInformationClicked {
+    -webkit-transform: translateX(0vw);
+            transform: translateX(0vw);
+  }
+  .imageDescriptionClicked {
+    -webkit-transform: translateX(vw);
+            transform: translateX(vw);
+  }
+  .homeMovieTitle {
+    font-size: 1.5rem;
+    text-align: center;
+  }
+  [class^="swiper-container"] {
+    margin-top: 1rem;
+    overflow: hidden;
+    width: 90%;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    margin: auto;
+    height: 70vh;
+  }
+  .swiper-slide {
+    background-position: center;
+    background-size: cover;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  .movieImage {
+    width: 100%;
+    border-radius: 20px;
+    height: 100%;
+  }
+  .movieImageWrapper {
+    border-radius: 20px;
+    width: 50%;
+  }
+  .swiper-slide-active {
+    -webkit-transform: scale(1.2);
+            transform: scale(1.2);
+  }
+  .colorTest {
+    position: fixed;
+    left: 200%;
+  }
+}
 /*# sourceMappingURL=index.css.map */
