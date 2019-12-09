@@ -82,3 +82,30 @@ export const clickedDescription = () => {
     type:'CLICK_DESCRIPTION'
   }
 }
+
+export const movieName = (name) => {
+  return{
+    type:'SEARCH_MOVIE_NAME',
+    payload:{
+      name:name
+    }
+  }
+}
+
+export const clickedSearch = () => {
+  return{
+    type:'TOGGLE_CLICKED_SEARCH'
+  }
+}
+
+export const relNumReset = () => {
+  return{
+    type:'RELEASE_NUM_RESET'
+  }
+}
+
+export const popNumReset = () => {
+  return{
+    type:'POPULAR_NUM_RESET'
+  }
+}

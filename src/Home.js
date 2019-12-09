@@ -24,7 +24,7 @@ function Home(props){
               <Route exact path='/movie' component={SeeMovie}/>
               <Route exact path='/newreleases' component={NewReleases}/>
               <Route exact path='/popularmovies' component={PopularMovies}/>
-              <Route exact path='/search' component={SearchForMovies}/>
+              <Route path='/search/' component={SearchForMovies}/>
             </Switch>
           </CSSTransition>
         </TransitionGroup>

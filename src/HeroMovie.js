@@ -54,6 +54,7 @@ function HeroMovie(){
                   value[2]+255:value[2]+20) + ')';
     dispatch(main(mainColor))
     dispatch(secondary(secondaryColor))
+    console.log('color catch')
   };
 
   useEffect(()=>{
@@ -61,10 +62,10 @@ function HeroMovie(){
   },[])
 
   useEffect(()=>{
-    if(movie.length !== 0){
+    if(movie.length >= 18){
       firstPicture();
       const randomMovieInterval = setInterval(()=>{
-        let num = randomNumGenerator(20);
+        let num = randomNumGenerator(18);
         dispatch(movieNumAction(num))
         setMovieImage(`https://image.tmdb.org/t/p/w500${movie[num]['poster_path']}`)
         setMovieTitle(movie[num]['title'])

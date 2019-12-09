@@ -3,7 +3,6 @@ import Swiper from 'swiper'
 import SwiperStyle from 'swiper/css/swiper.min.css'
 import {useDispatch, useSelector} from 'react-redux'
 import {movie as movieAction,
-  addMovie,
    movieNumber as movieNumAction,
   removeMovie,
   relNum as relNumAction,
@@ -12,6 +11,7 @@ import {movie as movieAction,
   secondaryColor as secondary} from './actions'
 import {Link} from 'react-router-dom'
 import ColorThief from 'color-thief'
+import SearchNavBar from './SearchNavBar'
 
 function NewReleases(){
 
@@ -27,30 +27,8 @@ function NewReleases(){
   let moviesList;
   let colorsList = [];
   useEffect(()=>{
-    fetchPopular()
+    dispatch(movieAction({}))
   },[])
-
-
-  function fetchPopular(){
-    fetch('https://api.themoviedb.org/3/movie/popular?api_key=a614b2b8bd0dd35de81141140841503f&language=en-US&page=' + popularPageNumber)
-    .then(data => data.json())
-    .then(data=> {
-      dispatch(movieAction(data.results));
-      dispatch(popNumAction())
-    }
-    )
-  }
-
-  function fetchMorePopular(){
-    popularPageNumber += 1;
-    fetch('https://api.themoviedb.org/3/movie/popular?api_key=a614b2b8bd0dd35de81141140841503f&language=en-US&page=' + popularPageNumber)
-    .then(data => data.json())
-    .then(data=> {
-      dispatch(addMovie(data.results))
-      dispatch(popNumAction())
-    }
-    )
-  }
 
   const colorMaker = (value) => {
     let mainColor = 'rgb('+ (value[0] > value[1] && value[0] > value[2] ? value[0]-20:value[0]-30)
@@ -68,9 +46,8 @@ function NewReleases(){
   };
 
   const moviesListCreator = new Promise((resolve,reject) => {
-      if(movies.length >= 19){
+      if(movies.length >= 1){
         moviesList = movies.map(movie => 
-          
           <div key={movie.id} className='swiper-slide'>
             <div className='movieImageWrapper'
             style={{boxShadow: `0 5px 10px ${primaryColor}`}}
@@ -79,7 +56,7 @@ function NewReleases(){
                 <img 
                 className='movieImage' 
                 src={movie['poster_path'] !== null ?
-                 `https://image.tmdb.org/t/p/w500${movie['poster_path']}`: './media/nopicture.png'}
+                 `https://image.tmdb.org/t/p/w500${movie['poster_path']}`: '../media/nopicture.png'}
                 />
               </Link>
             </div>
@@ -89,7 +66,7 @@ function NewReleases(){
           </div>
           );
   
-          if(moviesList.length >= 19){
+          if(moviesList.length >= 1){
               resolve()
           }
             
@@ -98,7 +75,7 @@ function NewReleases(){
 
   let randomNum = Math.floor(Math.random() * 10000000)
   useEffect(()=>{
-      if(movies.length === 19){
+      if(movies.length >= 1){
         moviesListCreator.then(() => {
           mySwiper = new Swiper('.swiper-container' + randomNum, {
             grabCursor: false,
@@ -106,6 +83,7 @@ function NewReleases(){
             slidesPerView: '3',
             keyboard:true,
             initialSlide:0,
+            observesSlideChildren:true,
             observer:true,
             navigation: {
               nextEl: '.swiper-button-next',
@@ -117,9 +95,6 @@ function NewReleases(){
               },
               init: function(){
                   dispatch(movieNumAction(0))
-              },
-              reachEnd:function(){
-                fetchMorePopular();
               }
             }
           })
@@ -143,7 +118,8 @@ function NewReleases(){
 
   return(
     <div className='newReleasesContainer'>
-      <h1 className='title'>Popular Movies</h1>
+      <SearchNavBar/>
+      <h1 className='title'>Search Results</h1>
       <div className={'swiper-container' + randomNum}>
         <div className='swiper-wrapper'>
           {moviesList}

@@ -35,7 +35,7 @@ body {
   padding: 1rem 0;
 }
 
-#homenavbar {
+#homenavbar, .searchnavbar {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -44,17 +44,40 @@ body {
           justify-content: center;
 }
 
-#homenavbar ul {
+#homenavbar ul, .searchnavbar ul {
   list-style: none;
   padding-left: 0;
 }
 
-#homenavbar a {
+#homenavbar a, .searchnavbar a {
   text-decoration: none;
   margin: 0 1rem;
   float: left;
   padding: 0.5rem 1rem;
   border-radius: 1.5rem;
+}
+
+.searchnavbar li {
+  text-decoration: none;
+  margin: 1rem 1rem;
+  float: left;
+}
+
+.searchnavbar li input {
+  background-color: transparent;
+  padding: 0.5rem 1rem;
+  border-radius: 1.5rem;
+}
+
+.searchnavbar li input:focus {
+  outline: 0;
+}
+
+.searchnavbar li button {
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 1.5rem;
+  color: black;
 }
 
 #hero {

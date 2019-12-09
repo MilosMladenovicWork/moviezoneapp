@@ -9,11 +9,12 @@ import {movie as movieAction,
   relNum as relNumAction,
   popNum as popNumAction,
   mainColor as main,
-  secondaryColor as secondary} from './actions'
+  secondaryColor as secondary,
+  popNumReset} from './actions'
 import {Link} from 'react-router-dom'
 import ColorThief from 'color-thief'
 
-function NewReleases(){
+function PopularMovies(){
 
   let mySwiper;
   const dispatch = useDispatch();
@@ -25,9 +26,11 @@ function NewReleases(){
 
 
   let moviesList;
-  let colorsList = [];
+
   useEffect(()=>{
-  fetchPopular();
+    dispatch(movieAction({}))
+    dispatch(popNumReset())
+    fetchPopular();
   },[])
 
 
@@ -43,7 +46,6 @@ function NewReleases(){
   }
 
   function fetchMorePopular(){
-    popularPageNumber += 1;
     fetch('https://api.themoviedb.org/3/movie/popular?api_key=a614b2b8bd0dd35de81141140841503f&language=en-US&page=' + popularPageNumber)
     .then(data => data.json())
     .then(data=> {
@@ -118,8 +120,7 @@ function NewReleases(){
               },
               init: function(){
                   dispatch(movieNumAction(0))
-              },
-              reachEnd:function(){
+              },reachEnd:function(){
                 fetchMorePopular();
               }
             }
@@ -169,4 +170,4 @@ function NewReleases(){
   )
 }
 
-export default NewReleases
+export default PopularMovies

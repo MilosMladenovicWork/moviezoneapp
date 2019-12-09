@@ -8,7 +8,8 @@ import {movie as movieAction,
   removeMovie,
   relNum as relNumAction,
   mainColor as main,
-  secondaryColor as secondary} from './actions'
+  secondaryColor as secondary,
+  relNumReset} from './actions'
 import {Link} from 'react-router-dom'
 import ColorThief from 'color-thief'
 
@@ -26,7 +27,9 @@ function NewReleases(){
   let moviesList;
   let colorsList = [];
   useEffect(()=>{
-  fetchNewReleases();
+    dispatch(movieAction({}))
+    dispatch(relNumReset())
+    fetchNewReleases();
   },[])
 
 
@@ -36,7 +39,6 @@ function NewReleases(){
     .then(data=> {
       dispatch(movieAction(data.results));
       dispatch(relNumAction())
-      return true
     }
     )
   }
@@ -67,7 +69,7 @@ function NewReleases(){
     dispatch(secondary(secondaryColor))
   };
 
-  const moviesListCreator = new Promise((resolve,reject) => {
+  const moviesListCreator = new Promise((resolve) => {
       if(movies.length >= 20){
         moviesList = movies.map(movie => 
           
@@ -98,7 +100,6 @@ function NewReleases(){
   })
 
   let randomNum = Math.floor(Math.random() * 10000000)
-
   useEffect(()=>{
       if(movies.length === 20){
         moviesListCreator.then(() => {
