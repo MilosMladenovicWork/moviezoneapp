@@ -663,8 +663,8 @@ body {
             transform: translateX(0vw);
   }
   .imageDescriptionClicked {
-    -webkit-transform: translateX(vw);
-            transform: translateX(vw);
+    -webkit-transform: translateX(0vw);
+            transform: translateX(0vw);
   }
   .homeMovieTitle {
     font-size: 1.5rem;
